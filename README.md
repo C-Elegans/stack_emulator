@@ -34,5 +34,7 @@ gt: 0x0C, pushes a 1 if the second value on the stack is greater than the top of
 jump: 0x2XXX, reads the 13 bit two's complement displacement and adds it to the instruction pointer
 
 cjump: 0x6XXX, pops the top of the stack and adds the 13 bit two's complement displacement to the instruction pointer only if the value popped is not 0
+
 call: 0x4XXXX, pushes the old ip onto the return stack, then reads the 13 bit two's complement displacement and adds it to the instruction pointer
+
 push: 0x8XXXX, reads the 15 bit value in the instruction and pushes it onto the stack
