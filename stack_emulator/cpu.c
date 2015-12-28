@@ -1,4 +1,7 @@
 #include "cpu.h"
+#define TOS stack[sp]
+#define NOS stack[sp-1]
+#define ROS stack[sp-2]
 uint16_t stack[4096];
 int sp = 0;
 void push(uint16_t val){
@@ -39,4 +42,20 @@ void out(){
 }
 void dup_s(void){
 	push(peek());
+}
+void swap(){
+	if(sp>0 && sp < 4096){
+		uint16_t temp = NOS;
+		NOS = TOS;
+		TOS = temp;
+	}
+}
+void rot(){
+	if(sp >1 && sp < 4096){
+		uint16_t temp1 = TOS; //tos = nos nos=ros ros=tos
+		uint16_t temp2 = NOS;
+		TOS = temp2;
+		NOS = ROS;
+		ROS = temp1;
+	}
 }

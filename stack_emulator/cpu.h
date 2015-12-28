@@ -6,7 +6,8 @@ void add();
 void sub();
 void dup_s(void);
 void out();
-
+void swap();
+void rot();
 uint16_t peek();
 #define NOP 0
 #define ADD 1

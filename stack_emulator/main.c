@@ -27,7 +27,6 @@ int decodeInstruction(){
 		if(val&(1<<12)){
 			val = val | (15<<12);
 		}
-		printf("jump: %d\n",val);
 		ip += val;
 		return 0;
 	
@@ -40,6 +39,8 @@ int decodeInstruction(){
 		case SUB:sub(); break;
 		case OUT:out(); break;
 		case DUP:dup_s(); break;
+		case SWAP:swap(); break;
+		case ROT:rot(); break;
 	}
 	return 1;
 
