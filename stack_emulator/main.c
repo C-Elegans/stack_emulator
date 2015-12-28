@@ -6,6 +6,9 @@ char *buf_end;
 long filelen;
 char* ip;
 extern int sp;
+void ret(){
+	ip = rpop();
+}
 int decodeInstruction(){
 	char op = *ip++;
 	if(op&PUSH){
@@ -13,10 +16,20 @@ int decodeInstruction(){
 		push(val);
 		return 2;
 	}
-	
+	else if (op&CALL && !(op&JUMP)){
+		
+		rpush(ip);
+		int16_t val=(op&31);
+		val = val << 8;
+		val += (*ip++) & 255;
+		if(val&(1<<12)){
+			val = val | (15<<12);
+		}
+		ip += val;
+	}
 	else if(op&JUMP){
 		if(op&64){
-			if(!peek()){
+			if(!pop()){
 				ip++;
 				return 2;
 			}
@@ -41,6 +54,11 @@ int decodeInstruction(){
 		case DUP:dup_s(); break;
 		case SWAP:swap(); break;
 		case ROT:rot(); break;
+		case RET:ret(); break;
+		default:{
+			printf("Invalid Opcode %d\n",op);
+			exit(-1);
+		}
 	}
 	return 1;
 
