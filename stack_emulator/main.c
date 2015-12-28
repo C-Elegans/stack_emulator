@@ -55,6 +55,9 @@ int decodeInstruction(){
 		case SWAP:swap(); break;
 		case ROT:rot(); break;
 		case RET:ret(); break;
+		case LT:lt();break;
+		case EQ:eq();break;
+		case GT:gt();break;
 		default:{
 			printf("Invalid Opcode %d\n",op);
 			exit(-1);

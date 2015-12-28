@@ -74,3 +74,21 @@ void rot(){
 		ROS = temp1;
 	}
 }
+void lt(){
+	uint16_t val1,val2;
+	val1 = pop();
+	val2 = pop();
+	push(val2<val1);
+}
+void eq(){
+	uint16_t val1,val2;
+	val1 = pop();
+	val2 = pop();
+	push(val2=val1);
+}
+void gt(){
+	uint16_t val1,val2;
+	val1 = pop();
+	val2 = pop();
+	push(val2>val1);
+}

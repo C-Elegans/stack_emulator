@@ -10,6 +10,9 @@ void dup_s(void);
 void out();
 void swap();
 void rot();
+void lt();
+void eq();
+void gt();
 uint16_t peek();
 uint16_t pop();
 #define NOP 0
