@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A10C7761C30BAA3000B5EAA /* cpu.c in Sources */ = {isa = PBXBuildFile; fileRef = 0A10C7731C30BAA3000B5EAA /* cpu.c */; };
 		0A10C7771C30BAA3000B5EAA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 0A10C7751C30BAA3000B5EAA /* main.c */; };
+		0A10C7791C3173DF000B5EAA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0A10C7781C3173DF000B5EAA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		0A10C7731C30BAA3000B5EAA /* cpu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpu.c; sourceTree = "<group>"; };
 		0A10C7741C30BAA3000B5EAA /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu.h; sourceTree = "<group>"; };
 		0A10C7751C30BAA3000B5EAA /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		0A10C7781C3173DF000B5EAA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		0A10C7601C30BA70000B5EAA = {
 			isa = PBXGroup;
 			children = (
+				0A10C7781C3173DF000B5EAA /* README.md */,
 				0A10C76B1C30BA70000B5EAA /* stack_emulator */,
 				0A10C76A1C30BA70000B5EAA /* Products */,
 			);
@@ -123,6 +126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A10C7791C3173DF000B5EAA /* README.md in Sources */,
 				0A10C7771C30BAA3000B5EAA /* main.c in Sources */,
 				0A10C7761C30BAA3000B5EAA /* cpu.c in Sources */,
 			);
@@ -243,6 +247,7 @@
 				0A10C7721C30BA70000B5EAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

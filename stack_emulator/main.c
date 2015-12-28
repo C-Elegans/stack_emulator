@@ -65,7 +65,7 @@ int decodeInstruction(){
 }
 int main(int argc, char** argv){
 	if(argc != 2){
-		puts("Usage sim [program]");
+		puts("Usage ./sim [program]");
 		return -1;
 	}
 		
