@@ -22,6 +22,9 @@ uint16_t pop();
 uint16_t rpeek();
 void lshift();
 void rshift();
+void mul();
+void fetch();
+void store();
 #define NOP 0
 #define ADD 1
 #define SUB 2
@@ -44,6 +47,10 @@ void rshift();
 #define XOR 19
 #define LSHIFT 20
 #define RSHIFT 21
+#define MUL 22
+#define FETCH 23
+#define STORE 24
+
 #define JUMP 32
 #define CALL 64
 #define CJUMP 96

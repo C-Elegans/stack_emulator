@@ -9,6 +9,7 @@ uint16_t stack[STACK_SIZE];
 uint16_t rstack[RSTACK_SIZE];
 int sp = 0;
 int rsp = 0;
+extern char* buffer;
 void push(uint16_t val){
 #ifdef STACK_DEBUG
 	printf("push %d sp: %d\n",val,sp);
@@ -143,4 +144,16 @@ void rshift(){
 	uint16_t val2 = pop();
 	uint16_t val1 = pop();
 	push(val1>>val2);
+}
+void mul(){
+	push(pop()*pop());
+}
+void fetch(){
+	uint16_t offset = pop();
+	push(*(uint16_t*)(buffer+offset));
+}
+void store(){
+	uint16_t address = pop();
+	uint16_t value = pop();
+	*(uint16_t*)(buffer+address) = value;
 }

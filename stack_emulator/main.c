@@ -70,6 +70,9 @@ int decodeInstruction(){
 		case XOR:s_xor();break;
 		case LSHIFT:lshift();break;
 		case RSHIFT:rshift();break;
+		case MUL:mul();break;
+		case FETCH:fetch();break;
+		case STORE:store();break;
 	}
 	return 1;
 
