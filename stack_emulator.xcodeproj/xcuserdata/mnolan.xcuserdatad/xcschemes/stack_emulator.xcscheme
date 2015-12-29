@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/mnolan/programming/asm/stack_cpu/stack_asm/test"
+            argument = "/Users/mnolan/programming/asm/stack_cpu/emulator/stack_emulator/main"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

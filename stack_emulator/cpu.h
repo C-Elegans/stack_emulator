@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 void push(uint16_t);
-void rpush(char*);
-char* rpop();
+void rpush(uint16_t);
+uint16_t rpop();
 void add();
 void sub();
 void dup_s(void);
@@ -13,8 +13,10 @@ void rot();
 void lt();
 void eq();
 void gt();
+void neg();
 uint16_t peek();
 uint16_t pop();
+uint16_t rpeek();
 #define NOP 0
 #define ADD 1
 #define SUB 2
@@ -28,6 +30,10 @@ uint16_t pop();
 #define LT 10
 #define EQ 11
 #define GT 12
+#define NEG 13
+#define RPUSH 14
+#define RPOP 15
+#define RCP 16
 #define JUMP 32
 #define CALL 64
 #define CJUMP 96

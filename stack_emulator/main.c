@@ -7,18 +7,19 @@ long filelen;
 char* ip;
 extern int sp;
 void ret(){
-	ip = rpop();
+	ip = buffer + rpop();
 }
 int decodeInstruction(){
 	char op = *ip++;
-	if(op&PUSH){
-		uint16_t val= ((op&127)<<8) + *ip++;
+	if(op&PUSH){ //push
+		
+		uint16_t val= ((op&63)<<8) + *ip++;
 		push(val);
 		return 2;
 	}
-	else if (op&CALL && !(op&JUMP)){
+	else if (op&CALL && !(op&JUMP)){ //Call
 		
-		rpush(ip);
+		rpush(ip - buffer);
 		int16_t val=(op&31);
 		val = val << 8;
 		val += (*ip++) & 255;
@@ -27,9 +28,9 @@ int decodeInstruction(){
 		}
 		ip += val;
 	}
-	else if(op&JUMP){
-		if(op&64){
-			if(!pop()){
+	else if(op&JUMP){ //jump + cjump
+		if(op&64){ //cjump
+			if(pop()){
 				ip++;
 				return 2;
 			}
@@ -58,10 +59,10 @@ int decodeInstruction(){
 		case LT:lt();break;
 		case EQ:eq();break;
 		case GT:gt();break;
-		default:{
-			printf("Invalid Opcode %d\n",op);
-			exit(-1);
-		}
+		case NEG:neg();break;
+		case RPUSH:rpush(pop());break;
+		case RPOP:push(rpop());break;
+		case RCP:push(rpeek());break;
 	}
 	return 1;
 
@@ -79,7 +80,7 @@ int main(int argc, char** argv){
 	filelen = ftell(fileptr);             // Get the current byte offset in the file
 	rewind(fileptr);                      // Jump back to the beginning of the file
 
-	buffer = (char *)malloc((filelen+1)*sizeof(char)); // Enough memory for file + \0
+	buffer = (char *)malloc((8192)*sizeof(char)); // Enough memory for file + \0
 	buf_end = buffer + filelen;
 	fread(buffer, filelen, 1, fileptr); // Read in the entire file
 	fclose(fileptr); // Close the file
