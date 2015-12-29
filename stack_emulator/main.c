@@ -14,8 +14,8 @@ int decodeInstruction(){
 	char op = *ip++;
 	if(op&PUSH){ //push
 		
-		uint16_t val= ((op&63)<<8) + *(uint8_t*)(ip);
-		ip++;
+		uint16_t val= ((op&63)<<8) + *(uint8_t*)(ip++);
+		
 		push(val);
 		return 2;
 	}
@@ -24,7 +24,7 @@ int decodeInstruction(){
 		rpush((ip+1) - buffer);
 		int16_t val=(op&31);
 		val = val << 8;
-		val += (*ip++) & 255;
+		val += (*(uint8_t*)(ip++)) & 255;
 		if(val&(1<<12)){
 			val = val | (15<<12);
 		}
@@ -39,7 +39,7 @@ int decodeInstruction(){
 		}
 		int16_t val=(op&31);
 		val = val << 8;
-		val += (*ip++) & 255;
+		val += (*(uint8_t*)(ip++)) & 255;
 		if(val&(1<<12)){
 			val = val | (15<<12);
 		}
