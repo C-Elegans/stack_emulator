@@ -99,31 +99,7 @@ int main(int argc, char** argv){
 		//printf("TOS: %d\n",peek());
 	
 	}
-	/*
-	 push 2
-	 push 0
-	 call 0
-	 
-	 push 1
-	 out
-	 dup
-	 rot
-	 dup
-	 rot
-	 eq
-	 neg
-	 cjump 6
-	 drop
-	 swap
-	 push 1
-	 add
-	 rcp
-	 rpush
-	 ret
-	 
-	 jump end
-	 end: nop
-	*/
+	
 	
 	return 0;
 }
