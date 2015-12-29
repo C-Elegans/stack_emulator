@@ -6,6 +6,7 @@ char *buf_end;
 long filelen;
 char* ip;
 extern int sp;
+extern uint16_t* stack;
 void ret(){
 	ip = buffer + rpop();
 }
@@ -19,7 +20,7 @@ int decodeInstruction(){
 	}
 	else if (op&CALL && !(op&JUMP)){ //Call
 		
-		rpush(ip - buffer);
+		rpush((ip+1) - buffer);
 		int16_t val=(op&31);
 		val = val << 8;
 		val += (*ip++) & 255;
@@ -92,8 +93,31 @@ int main(int argc, char** argv){
 		//printf("TOS: %d\n",peek());
 	
 	}
-	
-	
+	/*
+	 push 2
+	 push 0
+	 call 0
+	 
+	 push 1
+	 out
+	 dup
+	 rot
+	 dup
+	 rot
+	 eq
+	 neg
+	 cjump 6
+	 drop
+	 swap
+	 push 1
+	 add
+	 rcp
+	 rpush
+	 ret
+	 
+	 jump end
+	 end: nop
+	*/
 	
 	return 0;
 }

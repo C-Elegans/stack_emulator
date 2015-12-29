@@ -4,17 +4,24 @@
 #define TOS stack[sp]
 #define NOS stack[sp-1]
 #define ROS stack[sp-2]
+//#define STACK_DEBUG
 uint16_t stack[STACK_SIZE];
 uint16_t rstack[RSTACK_SIZE];
 int sp = 0;
 int rsp = 0;
 void push(uint16_t val){
+#ifdef STACK_DEBUG
+	printf("push %d sp: %d\n",val,sp);
+#endif
 	if(sp < STACK_SIZE-1){
 		stack[++sp] = val;
 		val++;
 	}
 }
 uint16_t pop(){
+#ifdef STACK_DEBUG
+	printf("pop\n");
+#endif
 	if(sp>=0){
 		return stack[sp--];
 	}
@@ -23,6 +30,9 @@ uint16_t pop(){
 	return -1;
 }
 uint16_t rpop(){
+#ifdef STACK_DEBUG
+	printf("rpop\n");
+#endif
 	if(rsp>=0){
 		return rstack[rsp--];
 	}
@@ -34,6 +44,9 @@ uint16_t rpeek(){
 	return rstack[rsp];
 }
 void rpush(uint16_t val){
+	#ifdef STACK_DEBUG
+	printf("rpush %d sp: %d\n",val,rsp);
+#endif
 	if(rsp < RSTACK_SIZE-1){
 		rstack[++rsp] = val;
 	}
@@ -72,11 +85,12 @@ void swap(){
 }
 void rot(){
 	if(sp >1 && sp < STACK_SIZE){
-		uint16_t temp1 = TOS; //tos = nos nos=ros ros=tos
-		uint16_t temp2 = NOS;
-		TOS = temp2;
-		NOS = ROS;
-		ROS = temp1;
+		uint16_t tos = TOS; //tos = nos nos=ros ros=tos
+		uint16_t nos = NOS;
+		uint16_t ros = ROS;
+		TOS = ros;
+		NOS = tos;
+		ROS = nos;
 	}
 }
 void lt(){
