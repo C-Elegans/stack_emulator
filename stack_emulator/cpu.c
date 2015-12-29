@@ -116,3 +116,31 @@ void neg(){
 	tmp = ~tmp;
 	push(tmp);
 }
+void s_and(){
+	uint16_t val1,val2;
+	val1 = pop();
+	val2 = pop();
+	push(val1&val2);
+}
+void s_or(){
+	uint16_t val1,val2;
+	val1 = pop();
+	val2 = pop();
+	push(val1|val2);
+}
+void s_xor(){
+	uint16_t val1,val2;
+	val1 = pop();
+	val2 = pop();
+	push(val1^val2);
+}
+void lshift(){
+	uint16_t val2 = pop();
+	uint16_t val1 = pop();
+	push(val1<<val2);
+}
+void rshift(){
+	uint16_t val2 = pop();
+	uint16_t val1 = pop();
+	push(val1>>val2);
+}

@@ -14,9 +14,14 @@ void lt();
 void eq();
 void gt();
 void neg();
+void s_and();
+void s_or();
+void s_xor();
 uint16_t peek();
 uint16_t pop();
 uint16_t rpeek();
+void lshift();
+void rshift();
 #define NOP 0
 #define ADD 1
 #define SUB 2
@@ -34,6 +39,11 @@ uint16_t rpeek();
 #define RPUSH 14
 #define RPOP 15
 #define RCP 16
+#define AND 17
+#define OR 18
+#define XOR 19
+#define LSHIFT 20
+#define RSHIFT 21
 #define JUMP 32
 #define CALL 64
 #define CJUMP 96

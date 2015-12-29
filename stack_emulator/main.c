@@ -14,7 +14,8 @@ int decodeInstruction(){
 	char op = *ip++;
 	if(op&PUSH){ //push
 		
-		uint16_t val= ((op&63)<<8) + *ip++;
+		uint16_t val= ((op&63)<<8) + *(uint8_t*)(ip);
+		ip++;
 		push(val);
 		return 2;
 	}
@@ -64,6 +65,11 @@ int decodeInstruction(){
 		case RPUSH:rpush(pop());break;
 		case RPOP:push(rpop());break;
 		case RCP:push(rpeek());break;
+		case AND:s_and();break;
+		case OR:s_or();break;
+		case XOR:s_xor();break;
+		case LSHIFT:lshift();break;
+		case RSHIFT:rshift();break;
 	}
 	return 1;
 
