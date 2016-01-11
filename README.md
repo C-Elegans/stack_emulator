@@ -27,7 +27,17 @@ lt: 0x0A, pushes a 1 if the second value on the stack is less than the top of th
 
 eq: 0x0B, pushes a 1 if the top two values on the stack are equal
 
-gt: 0x0C, pushes a 1 if the second value on the stack is greater than the top of the stack, 0 otherwise
+gt: 0x0C, pushes a 1 if the second value on the stack is greater than the top of the stack, 0
+
+neg: 0x0D, negates the top of the stack
+
+rpush: 0x0E, pops a value off of the stack and pushes it onto the rstack
+
+rpop: 0x0F, pops a value off of the rstack and pushes it onto the stack
+
+rcp: 0x10, copies the top of the rstack to the stack
+
+and: 0x11, ands the top two values on the stack
 
 16 bit instructions
 
