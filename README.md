@@ -39,7 +39,17 @@ rcp: 0x10, copies the top of the rstack to the stack
 
 and: 0x11, ands the top two values on the stack
 
+or: 0x12, ors the top two values on the stack
+
+xor: 0x13, xors the top 2 values on the stack
+
+lshift: 0x14, shifts the top of the stack left by the second value on the stack
+
+rshift: 0x15, shifts the top of the stack right by the second value on the stack
+
 16 bit instructions
+NOTE: THESE MUST BE ALIGNED TO A 16 BIT BOUNDARY
+the assembler will automatically insert nops to enforce this
 
 jump: 0x2XXX, reads the 13 bit two's complement displacement and adds it to the instruction pointer
 
