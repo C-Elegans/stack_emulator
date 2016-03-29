@@ -11,13 +11,14 @@
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "YES"
+            hideIssues = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A10C7681C30BA70000B5EAA"
-               BuildableName = "stack_emulator"
-               BlueprintName = "stack_emulator"
-               ReferencedContainer = "container:stack_emulator.xcodeproj">
+               BuildableName = "stackyII-emu"
+               BlueprintName = "stackyII-emu"
+               ReferencedContainer = "container:stackyII-emu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +34,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A10C7681C30BA70000B5EAA"
-            BuildableName = "stack_emulator"
-            BlueprintName = "stack_emulator"
-            ReferencedContainer = "container:stack_emulator.xcodeproj">
+            BuildableName = "stackyII-emu"
+            BlueprintName = "stackyII-emu"
+            ReferencedContainer = "container:stackyII-emu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,14 +57,14 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A10C7681C30BA70000B5EAA"
-            BuildableName = "stack_emulator"
-            BlueprintName = "stack_emulator"
-            ReferencedContainer = "container:stack_emulator.xcodeproj">
+            BuildableName = "stackyII-emu"
+            BlueprintName = "stackyII-emu"
+            ReferencedContainer = "container:stackyII-emu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/mnolan/programming/asm/stack_cpu/emulator/stack_emulator/main"
+            argument = "asm"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
@@ -81,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A10C7681C30BA70000B5EAA"
-            BuildableName = "stack_emulator"
-            BlueprintName = "stack_emulator"
-            ReferencedContainer = "container:stack_emulator.xcodeproj">
+            BuildableName = "stackyII-emu"
+            BlueprintName = "stackyII-emu"
+            ReferencedContainer = "container:stackyII-emu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

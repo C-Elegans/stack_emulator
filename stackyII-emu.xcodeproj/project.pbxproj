@@ -7,10 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A10C7761C30BAA3000B5EAA /* cpu.c in Sources */ = {isa = PBXBuildFile; fileRef = 0A10C7731C30BAA3000B5EAA /* cpu.c */; };
-		0A10C7771C30BAA3000B5EAA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 0A10C7751C30BAA3000B5EAA /* main.c */; };
 		0A10C7791C3173DF000B5EAA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0A10C7781C3173DF000B5EAA /* README.md */; };
+		0AEE3EEB1CAAB8F3006F0348 /* asm.s in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE3EE71CAAB8F3006F0348 /* asm.s */; };
+		0AEE3EEC1CAAB8F3006F0348 /* cpu.c in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE3EE81CAAB8F3006F0348 /* cpu.c */; };
+		0AEE3EED1CAAB8F3006F0348 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE3EEA1CAAB8F3006F0348 /* main.c */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		0AEE3EE61CAAB87A006F0348 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = sourcecode.asm;
+			isEditable = 1;
+			outputFiles = (
+				"${BUILT_PRODUCTS_DIR}/${INPUT_FILE_BASE}",
+			);
+			script = "/usr/local/bin/stackyII-as -i ${SRCROOT}/${PROJECT_NAME}/${INPUT_FILE_BASE}.s -o ${BUILT_PRODUCTS_DIR}/${INPUT_FILE_BASE}";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0A10C7671C30BA70000B5EAA /* CopyFiles */ = {
@@ -25,11 +39,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A10C7691C30BA70000B5EAA /* stack_emulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stack_emulator; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A10C7731C30BAA3000B5EAA /* cpu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpu.c; sourceTree = "<group>"; };
-		0A10C7741C30BAA3000B5EAA /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpu.h; sourceTree = "<group>"; };
-		0A10C7751C30BAA3000B5EAA /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		0A10C7691C30BA70000B5EAA /* stackyII-emu */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "stackyII-emu"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A10C7781C3173DF000B5EAA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0AEE3EE71CAAB8F3006F0348 /* asm.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; name = asm.s; path = "stackyII-emu/asm.s"; sourceTree = SOURCE_ROOT; };
+		0AEE3EE81CAAB8F3006F0348 /* cpu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cpu.c; path = "stackyII-emu/cpu.c"; sourceTree = SOURCE_ROOT; };
+		0AEE3EE91CAAB8F3006F0348 /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cpu.h; path = "stackyII-emu/cpu.h"; sourceTree = SOURCE_ROOT; };
+		0AEE3EEA1CAAB8F3006F0348 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = "stackyII-emu/main.c"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				0A10C7781C3173DF000B5EAA /* README.md */,
-				0A10C76B1C30BA70000B5EAA /* stack_emulator */,
+				0A10C76B1C30BA70000B5EAA /* stackyII-emu */,
 				0A10C76A1C30BA70000B5EAA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,39 +70,42 @@
 		0A10C76A1C30BA70000B5EAA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A10C7691C30BA70000B5EAA /* stack_emulator */,
+				0A10C7691C30BA70000B5EAA /* stackyII-emu */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A10C76B1C30BA70000B5EAA /* stack_emulator */ = {
+		0A10C76B1C30BA70000B5EAA /* stackyII-emu */ = {
 			isa = PBXGroup;
 			children = (
-				0A10C7731C30BAA3000B5EAA /* cpu.c */,
-				0A10C7741C30BAA3000B5EAA /* cpu.h */,
-				0A10C7751C30BAA3000B5EAA /* main.c */,
+				0AEE3EE71CAAB8F3006F0348 /* asm.s */,
+				0AEE3EE81CAAB8F3006F0348 /* cpu.c */,
+				0AEE3EE91CAAB8F3006F0348 /* cpu.h */,
+				0AEE3EEA1CAAB8F3006F0348 /* main.c */,
 			);
+			name = "stackyII-emu";
 			path = stack_emulator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A10C7681C30BA70000B5EAA /* stack_emulator */ = {
+		0A10C7681C30BA70000B5EAA /* stackyII-emu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A10C7701C30BA70000B5EAA /* Build configuration list for PBXNativeTarget "stack_emulator" */;
+			buildConfigurationList = 0A10C7701C30BA70000B5EAA /* Build configuration list for PBXNativeTarget "stackyII-emu" */;
 			buildPhases = (
 				0A10C7651C30BA70000B5EAA /* Sources */,
 				0A10C7661C30BA70000B5EAA /* Frameworks */,
 				0A10C7671C30BA70000B5EAA /* CopyFiles */,
 			);
 			buildRules = (
+				0AEE3EE61CAAB87A006F0348 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
-			name = stack_emulator;
+			name = "stackyII-emu";
 			productName = stack_emulator;
-			productReference = 0A10C7691C30BA70000B5EAA /* stack_emulator */;
+			productReference = 0A10C7691C30BA70000B5EAA /* stackyII-emu */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +122,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0A10C7641C30BA70000B5EAA /* Build configuration list for PBXProject "stack_emulator" */;
+			buildConfigurationList = 0A10C7641C30BA70000B5EAA /* Build configuration list for PBXProject "stackyII-emu" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -116,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A10C7681C30BA70000B5EAA /* stack_emulator */,
+				0A10C7681C30BA70000B5EAA /* stackyII-emu */,
 			);
 		};
 /* End PBXProject section */
@@ -126,9 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AEE3EED1CAAB8F3006F0348 /* main.c in Sources */,
+				0AEE3EEC1CAAB8F3006F0348 /* cpu.c in Sources */,
 				0A10C7791C3173DF000B5EAA /* README.md in Sources */,
-				0A10C7771C30BAA3000B5EAA /* main.c in Sources */,
-				0A10C7761C30BAA3000B5EAA /* cpu.c in Sources */,
+				0AEE3EEB1CAAB8F3006F0348 /* asm.s in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,21 +236,21 @@
 		0A10C7711C30BA70000B5EAA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "stackyII-emu";
 			};
 			name = Debug;
 		};
 		0A10C7721C30BA70000B5EAA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "stackyII-emu";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A10C7641C30BA70000B5EAA /* Build configuration list for PBXProject "stack_emulator" */ = {
+		0A10C7641C30BA70000B5EAA /* Build configuration list for PBXProject "stackyII-emu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A10C76E1C30BA70000B5EAA /* Debug */,
@@ -240,7 +259,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A10C7701C30BA70000B5EAA /* Build configuration list for PBXNativeTarget "stack_emulator" */ = {
+		0A10C7701C30BA70000B5EAA /* Build configuration list for PBXNativeTarget "stackyII-emu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A10C7711C30BA70000B5EAA /* Debug */,

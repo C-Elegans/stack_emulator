@@ -2,12 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 void push(uint16_t);
-void rpush(uint16_t);
-uint16_t rpop();
 void add();
 void sub();
 void dup_s(void);
 void out();
+void drop();
 void swap();
 void rot();
 void lt();
@@ -25,8 +24,12 @@ void rshift();
 void mul();
 void fetch();
 void store();
-#define NOP 0
-#define ADD 1
+void local(uint16_t val);
+void frame(uint16_t val);
+void slocal(uint16_t val);
+void leave();
+#define NOP 0x0000
+#define ADD 0x0001
 #define SUB 2
 #define OUT 3
 #define IN 4
@@ -39,9 +42,7 @@ void store();
 #define EQ 11
 #define GT 12
 #define NEG 13
-#define RPUSH 14
-#define RPOP 15
-#define RCP 16
+#define LEAVE 14
 #define AND 17
 #define OR 18
 #define XOR 19
@@ -51,8 +52,10 @@ void store();
 #define FETCH 23
 #define STORE 24
 
-#define JUMP 32
-#define CALL 64
-#define CJUMP 96
-#define PUSH 128
-
+#define FRAME 0x0400
+#define SLOCAL 0x0c00
+#define LOCAL 0x0800
+#define JUMP 0x2000
+#define CALL 0x4000
+#define CJUMP 0x6000
+#define PUSH 0x8000
